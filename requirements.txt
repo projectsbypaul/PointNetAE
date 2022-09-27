@@ -13,3 +13,9 @@ termcolor >= 1.1.0
 trimesh >= 2.37.22
 # Required by trimesh.
 networkx
+
+keras~=2.10.0
+wandb~=0.13.3
+six~=1.16.0
+setuptools~=60.2.0
+Pillow~=9.2.0

@@ -56,7 +56,6 @@ def tnet(inputs, num_features):
 
 
 def build_model(NUM_POINTS, BATCH_SIZE, NUM_CLASSES):
-
     inputs = keras.Input(shape=(NUM_POINTS, 3))
 
     x = tnet(inputs, 3)
@@ -74,7 +73,9 @@ def build_model(NUM_POINTS, BATCH_SIZE, NUM_CLASSES):
     # Decoder
 
     x = layers.Dense(1024)(x)
+    x = layers.BatchNormalization()(x)
     x = layers.Dense(1024)(x)
+    x = layers.BatchNormalization()(x)
     x = layers.Dense(NUM_POINTS * 3)(x)
 
     outputs = layers.Reshape((NUM_POINTS, 3))(x)
