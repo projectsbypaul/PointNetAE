@@ -51,7 +51,7 @@ def tnet(inputs, num_features):
         activity_regularizer=reg,
     )(x)
     feat_T = layers.Reshape((num_features, num_features))(x)
-    # Apply affine transformation to input features
+    # Apply affine transformation to inputs features
     return layers.Dot(axes=(2, 1))([inputs, feat_T])
 
 
