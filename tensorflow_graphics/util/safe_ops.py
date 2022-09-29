@@ -102,7 +102,7 @@ def safe_shrink(
     name: str = 'safe_shrink') -> tf.Tensor:
   """Shrinks vector by (1.0 - eps) based on its dtype.
 
-  This function shrinks the input vector by a very small amount to ensure that
+  This function shrinks the inputs vector by a very small amount to ensure that
   it is not outside of expected range because of floating point precision
   of operations, e.g. dot product of a normalized vector with itself can
   be greater than `1.0` by a small amount determined by the `dtype` of the

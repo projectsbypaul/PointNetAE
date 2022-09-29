@@ -237,7 +237,7 @@ class NoiseTest(tf.test.TestCase):
 
   def test_raises_with_wrong_number_of_inputs(self):
     with self.assertRaisesRegex(ValueError,
-                                'single input feature map or 2 inputs'):
+                                'single inputs feature map or 2 inputs'):
       _ = keras_layers.Noise()(
           inputs=(tf.ones((1, 1)), tf.ones((1, 1)), tf.ones((1, 1))))
 

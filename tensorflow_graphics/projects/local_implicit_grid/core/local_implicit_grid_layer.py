@@ -42,7 +42,7 @@ class LocalImplicitGrid(layers.Layer):
 
     Args:
       size: list or tuple of ints, grid dimension in each dimension.
-      in_features: int, number of input channels.
+      in_features: int, number of inputs channels.
       out_features: int, number of output channels.
       x_location_max: float, relative coordinate range for one voxel.
       num_filters: int, number of filters for refiner.
@@ -90,7 +90,7 @@ class LocalImplicitGrid(layers.Layer):
     """Forward method for Learnable Voxel Grid.
 
     Args:
-      grid: `[batch_size, *self.size, in_features]` tensor, input feature grid.
+      grid: `[batch_size, *self.size, in_features]` tensor, inputs feature grid.
       pts: `[batch_size, num_points, dim]` tensor, coordinates of points that
       are within the range (0, 1).
       training: bool, flag indicating training phase.
@@ -114,12 +114,12 @@ class LocalImplicitGrid(layers.Layer):
     """Interpolation function to get local latent code, weights & relative loc.
 
     Args:
-      grid: `[batch_size, *self.size, in_features]` tensor, input feature grid.
+      grid: `[batch_size, *self.size, in_features]` tensor, inputs feature grid.
       pts: `[batch_size, num_points, dim]` tensor, coordinates of points that
       are within the range (0, 1).
     Returns:
       lat: `[batch_size, num_points, 2**dim, in_features]` tensor, neighbor
-      latent codes for each input point.
+      latent codes for each inputs point.
       weights: `[batch_size, num_points, 2**dim]` tensor, bi/tri-linear
       interpolation weights for each neighbor.
       xloc: `[batch_size, num_points, 2**dim, dim]`tensor, relative coordinates.
@@ -138,7 +138,7 @@ class LocalImplicitGrid(layers.Layer):
 
     Args:
       lat: `[batch_size, num_points, 2**dim, in_features]` tensor, neighbor
-      latent codes for each input point.
+      latent codes for each inputs point.
       weights: `[batch_size, num_points, 2**dim]` tensor, bi/tri-linear
       interpolation weights for each neighbor.
       xloc: `[batch_size, num_points, 2**dim, dim]`tensor, relative coordinates.

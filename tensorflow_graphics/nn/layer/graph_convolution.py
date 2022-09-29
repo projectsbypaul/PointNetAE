@@ -38,7 +38,7 @@ def feature_steered_convolution_layer(
 
   The shorthands used below are
     `V`: The number of vertices.
-    `C`: The number of channels in the input data.
+    `C`: The number of channels in the inputs data.
 
   Note:
     In the following, A1 to An are optional batch dimensions.
@@ -57,12 +57,12 @@ def feature_steered_convolution_layer(
       `neighbors[A1, ..., An, i, i] > 0` for all `i`, and
       `sum(neighbors, axis=-1)[A1, ..., An, i] == 1.0` for all `i`.
       These requirements are relaxed in this implementation.
-    sizes: An `int` tensor of shape `[A1, ..., An]` indicating the true input
+    sizes: An `int` tensor of shape `[A1, ..., An]` indicating the true inputs
       sizes in case of padding (`sizes=None` indicates no padding).
       `sizes[A1, ..., An] <= V`. If `data` and `neighbors` are 2-D, `sizes` will
-      be ignored. As an example, consider an input consisting of three graphs
+      be ignored. As an example, consider an inputs consisting of three graphs
       `G0`, `G1`, and `G2` with `V0`, `V1` and `V2` vertices respectively. The
-      padded input would have the following shapes: `data.shape = [3, V, C]`,
+      padded inputs would have the following shapes: `data.shape = [3, V, C]`,
       and `neighbors.shape = [3, V, V]`, where `V = max([V0, V1, V2])`. The true
       sizes of each graph will be specified by `sizes=[V0, V1, V2]`.
       `data[i, :Vi, :]` and `neighbors[i, :Vi, :Vi]` will be the vertex and
@@ -157,7 +157,7 @@ class FeatureSteeredConvolutionKerasLayer(tf.keras.layers.Layer):
         used in the convolution.
       num_output_channels: An optional `int` specifying the number of channels
         in the output. If `None` then `num_output_channels` will be the same as
-        the input dimensionality.
+        the inputs dimensionality.
       initializer: An initializer for the trainable variables. If `None`,
         defaults to `tf.keras.initializers.TruncatedNormal(stddev=0.1)`.
       name: A name for this layer.
@@ -221,7 +221,7 @@ class FeatureSteeredConvolutionKerasLayer(tf.keras.layers.Layer):
 
     The shorthands used below are
       `V`: The number of vertices.
-      `C`: The number of channels in the input data.
+      `C`: The number of channels in the inputs data.
 
     Note:
       In the following, A1 to An are optional batch dimensions.
@@ -241,12 +241,12 @@ class FeatureSteeredConvolutionKerasLayer(tf.keras.layers.Layer):
         `i`, and `sum(neighbors, axis=-1)[A1, ..., An, i] == 1.0` for all `i`.
         These requirements are relaxed in this implementation.
       **kwargs: A dictionary containing the key `sizes`, which is an `int` tensor
-        of shape `[A1, ..., An]` indicating the true input sizes in case of
+        of shape `[A1, ..., An]` indicating the true inputs sizes in case of
         padding (`sizes=None` indicates no padding). `sizes[A1, ..., An] <= V`.
         If `data` and `neighbors` are 2-D, `sizes` will be ignored. As an
-        example usage of `sizes`, consider an input consisting of three graphs
+        example usage of `sizes`, consider an inputs consisting of three graphs
         `G0`, `G1`, and `G2` with `V0`, `V1`, and `V2` vertices respectively.
-        The padded input would have the shapes `data.shape = [3, V, C]`, and
+        The padded inputs would have the shapes `data.shape = [3, V, C]`, and
         `neighbors.shape = [3, V, V]`, where `V = max([V0, V1, V2])`. The true
         sizes of each graph will be specified by `sizes=[V0, V1, V2]`.
         `data[i, :Vi, :]` and `neighbors[i, :Vi, :Vi]` will be the vertex and
@@ -287,7 +287,7 @@ class DynamicGraphConvolutionKerasLayer(tf.keras.layers.Layer):
   This implementation is slightly generalized version to what is described in
   the paper in that here variable sized neighborhoods are allowed rather than
   forcing a fixed size k-neighbors. Users must provide the neighborhoods as
-  input.
+  inputs.
   """
 
   def __init__(self,
@@ -365,7 +365,7 @@ class DynamicGraphConvolutionKerasLayer(tf.keras.layers.Layer):
 
     The shorthands used below are
       `V`: The number of vertices.
-      `C`: The number of channels in the input data.
+      `C`: The number of channels in the inputs data.
 
     Note:
       In the following, A1 to An are optional batch dimensions.
@@ -383,12 +383,12 @@ class DynamicGraphConvolutionKerasLayer(tf.keras.layers.Layer):
         this is not enforced in the implementation in case different neighbor
         weighting schemes are desired.
       **kwargs: A dictionary containing the key `sizes`, which is an `int`
-        tensor of shape `[A1, ..., An]` indicating the true input sizes in case
+        tensor of shape `[A1, ..., An]` indicating the true inputs sizes in case
         of padding (`sizes=None` indicates no padding).
         `sizes[A1, ..., An] <= V`. If `data` and `neighbors` are 2-D, `sizes`
-        will be ignored. As an example usage of `sizes`, consider an input
+        will be ignored. As an example usage of `sizes`, consider an inputs
         consisting of three graphs `G0`, `G1`, and `G2` with `V0`, `V1`, and
-        `V2` vertices respectively. The padded input would have the shapes
+        `V2` vertices respectively. The padded inputs would have the shapes
         `data.shape = [3, V, C]`, and `neighbors.shape = [3, V, V]`,
         where `V = max([V0, V1, V2])`. The true sizes of each graph will be
         specified by `sizes=[V0, V1, V2]`. `data[i, :Vi, :]` and

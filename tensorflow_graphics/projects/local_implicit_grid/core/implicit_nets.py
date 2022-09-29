@@ -32,8 +32,8 @@ class ImNet(layers.Layer):
     """Initialization.
 
     Args:
-      dim: int, dimension of input points.
-      in_features: int, length of input features (i.e., latent code).
+      dim: int, dimension of inputs points.
+      in_features: int, length of inputs features (i.e., latent code).
       out_features: number of output features.
       num_filters: int, width of the second to last layer.
       activation: tf activation op.

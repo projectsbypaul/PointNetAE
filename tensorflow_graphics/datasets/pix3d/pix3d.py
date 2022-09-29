@@ -58,7 +58,7 @@ Notes:
     They are defined for viewer-centered algorithms whose predictions need to be
     rotated back to the canonical view for evaluations against ground truth
     shapes. This is necessary as most algorithms assume that the camera is
-    looking at the object's center, the raw input images are usually cropped or
+    looking at the object's center, the raw inputs images are usually cropped or
     transformed before sending into their pipeline.
   * There are two wrong segmentation masks in the annotations of the original
     Pix3D dataset (See https://github.com/xingyuansun/pix3d/issues/18 for
@@ -131,7 +131,7 @@ class Pix3d(tfds.core.GeneratorBasedBuilder):
             'occluded': tf.bool,
             'slightly_occluded': tf.bool,
         }),
-        # If there's a common (input, target) tuple from the features,
+        # If there's a common (inputs, target) tuple from the features,
         # specify them here. They'll be used if as_supervised=True in
         # builder.as_dataset.
         supervised_keys=None,

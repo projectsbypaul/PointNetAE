@@ -48,7 +48,7 @@ def apply_style_with_adain(mapped_latent_code: tf.Tensor,
 
   Args:
     mapped_latent_code: The mapped latent code that contains the style.
-    input_tensor: The input tensor to which the style should be applied.
+    input_tensor: The inputs tensor to which the style should be applied.
 
   Returns:
     The input_tensor after applying the style.

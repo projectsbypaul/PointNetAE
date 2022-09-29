@@ -57,7 +57,7 @@ class ConvolutionalBlock(tf.keras.layers.Layer):
       out_dim: Integer, number of filter in the convolution.
       norm_type: Object type of the norm to use.
       stride: Integer, stride used in the convolution.
-      input_shape: Tuple with the input shape i.e. (None, 512, 512, 3).
+      input_shape: Tuple with the inputs shape i.e. (None, 512, 512, 3).
       padding: String, padding type used in the convolution.
       relu: Boolean, use relu at the end.
       name: String, name of the block.

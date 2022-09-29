@@ -127,7 +127,7 @@ def perspective_transform(
 
   Note:
       The transformation matrix maps target to source by transforming output
-      points to input points.
+      points to inputs points.
 
   Args:
     image: A tensor of shape `[B, H_i, W_i, C]`, where `B` is the batch size,
@@ -135,9 +135,9 @@ def perspective_transform(
       number of channels of the image.
     transform_matrix: A tensor of shape `[B, 3, 3]` containing projective
       transform matrices. The transformation maps target to source by
-      transforming output points to input points.
+      transforming output points to inputs points.
     output_shape: The heigh `H_o` and width `W_o` output dimensions after the
-      transform. If None, output is the same size as input image.
+      transform. If None, output is the same size as inputs image.
     resampling_type: Resampling mode. Supported values are
       `ResamplingType.NEAREST` and `ResamplingType.BILINEAR`.
     border_type: Border mode. Supported values are `BorderType.ZERO` and

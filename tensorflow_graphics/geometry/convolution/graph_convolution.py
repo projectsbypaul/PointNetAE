@@ -47,10 +47,10 @@ def feature_steered_convolution(
 
   The shorthands used below are
     `V`: The number of vertices.
-    `C`: The number of channels in the input data.
+    `C`: The number of channels in the inputs data.
     `D`: The number of channels in the output after convolution.
     `W`: The number of weight matrices used in the convolution.
-    The input variables (`var_u`, `var_v`, `var_c`, `var_w`, `var_b`) correspond
+    The inputs variables (`var_u`, `var_v`, `var_c`, `var_w`, `var_b`) correspond
     to the variables with the same names in the paper cited above.
 
   Note:
@@ -69,12 +69,12 @@ def feature_steered_convolution(
       if vertex j is a neighbor of i, and `neighbors[A1, ..., An, i, i] > 0` for
       all i, and `sum(neighbors, axis=-1)[A1, ..., An, i] == 1.0 for all i`.
       These requirements are relaxed in this implementation.
-    sizes: An `int` tensor of shape `[A1, ..., An]` indicating the true input
+    sizes: An `int` tensor of shape `[A1, ..., An]` indicating the true inputs
       sizes in case of padding (`sizes=None` indicates no padding).Note that
       `sizes[A1, ..., An] <= V`. If `data` and `neighbors` are 2-D, `sizes` will
-      be ignored. An example usage of `sizes`: consider an input consisting of
+      be ignored. An example usage of `sizes`: consider an inputs consisting of
       three graphs G0, G1, and G2 with V0, V1, and V2 vertices respectively. The
-      padded input would have the following shapes: `data.shape = [3, V, C]` and
+      padded inputs would have the following shapes: `data.shape = [3, V, C]` and
       `neighbors.shape = [3, V, V]`, where `V = max([V0, V1, V2])`. The true
       sizes of each graph will be specified by `sizes=[V0, V1, V2]`,
       `data[i, :Vi, :]` and `neighbors[i, :Vi, :Vi]` will be the vertex and
@@ -92,8 +92,8 @@ def feature_steered_convolution(
     Tensor with shape `[A1, ..., An, V, D]`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   #  pyformat: enable
   with tf.name_scope(name):
@@ -195,7 +195,7 @@ def edge_convolution_template(
 
   The shorthands used below are
     `V`: The number of vertices.
-    `C`: The number of channels in the input data.
+    `C`: The number of channels in the inputs data.
 
   Note:
     In the following, A1 to An are optional batch dimensions.
@@ -207,11 +207,11 @@ def edge_convolution_template(
       of a vertex defines the support region for convolution. The value at
       `neighbors[A1, ..., An, i, j]` corresponds to the weight \\(w_{ij}\\)
       above. Each vertex must have at least one neighbor.
-    sizes: An `int` tensor of shape `[A1, ..., An]` indicating the true input
+    sizes: An `int` tensor of shape `[A1, ..., An]` indicating the true inputs
       sizes in case of padding (`sizes=None` indicates no padding). Note that
       `sizes[A1, ..., An] <= V`. If `data` and `neighbors` are 2-D, `sizes` will
-      be ignored. As an example, consider an input consisting of three graphs
-      G0, G1, and G2 with V0, V1, and V2 vertices respectively. The padded input
+      be ignored. As an example, consider an inputs consisting of three graphs
+      G0, G1, and G2 with V0, V1, and V2 vertices respectively. The padded inputs
       would have the shapes `[3, V, C]`, and `[3, V, V]` for `data` and
       `neighbors` respectively, where `V = max([V0, V1, V2])`. The true sizes of
       each graph will be specified by `sizes=[V0, V1, V2]` and `data[i, :Vi, :]`
@@ -235,8 +235,8 @@ def edge_convolution_template(
     Tensor with shape `[A1, ..., An, V, D]`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   #  pyformat: enable
   with tf.name_scope(name):

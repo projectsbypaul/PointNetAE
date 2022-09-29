@@ -53,7 +53,7 @@ def _max_distance_for_overlap(height, width, min_iou=0.7):
     min_iou: A float representing the minimum IoU desired.
 
   Returns:
-   distance: A 1-D Tensor of distances, of the same length as the input
+   distance: A 1-D Tensor of distances, of the same length as the inputs
      height and width tensors.
   """
   height, width = tf.math.ceil(height), tf.math.ceil(width)
@@ -105,9 +105,9 @@ def assign_center_targets(gt_box_batch,
       `gt_box_batch`.
     gt_num_boxes_batch: A tensors with the number of valid boxes in
       `gt_box_batch`.
-    image_size: int tuple (height, width) of input to the CenterNet model. This
+    image_size: int tuple (height, width) of inputs to the CenterNet model. This
       is used to determine the height of the output.
-    stride: int, ratio between the input and output size in the network.
+    stride: int, ratio between the inputs and output size in the network.
     num_classes: int, total number of classes.
     gt_weights_batch: A list of tensors corresponding to the weight of each
       ground truth detection box.
@@ -116,7 +116,7 @@ def assign_center_targets(gt_box_batch,
   Returns:
     heatmap: A Tensor of size [batch_size, output_height, output_width,
       num_classes] representing the per class center heatmap. output_height
-      and output_width are computed by dividing the input height and width by
+      and output_width are computed by dividing the inputs height and width by
       the stride.
   """
   height, width = image_size

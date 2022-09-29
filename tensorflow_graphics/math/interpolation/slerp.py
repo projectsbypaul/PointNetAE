@@ -23,13 +23,13 @@
 
   The main differences between two methods are:
   vector_weights:
-    can get any M-D tensor as input,
-    does not expect normalized vectors as input,
+    can get any M-D tensor as inputs,
+    does not expect normalized vectors as inputs,
     returns unnormalized outputs (in general) for unnormalized inputs.
 
   quaternion_weights:
     expects M-D tensors with a last dimension of 4,
-    assumes normalized input,
+    assumes normalized inputs,
     checks for ambiguity by looking at the angle between quaternions,
     returns normalized quaternions naturally.
 """
@@ -81,12 +81,12 @@ def interpolate(vector1: type_alias.TensorLike,
     vector2: A tensor of shape `[A1, ... , An, M]`, which stores a normalized
       vector in its last dimension.
     percent: A `float` or a tensor with shape broadcastable to the shape of
-      input vectors.
+      inputs vectors.
     method: An enumerated constant from the class InterpolationType, which is
-      either InterpolationType.QUATERNION (default) if the input vectors are 4-D
+      either InterpolationType.QUATERNION (default) if the inputs vectors are 4-D
       quaternions, or InterpolationType.VECTOR if they are regular M-D vectors.
     eps: A small float for operation safety. If left None, its value is
-      automatically selected using dtype of input vectors.
+      automatically selected using dtype of inputs vectors.
     name: A name for this op. Defaults to "vector_weights" or
       "quaternion_weights" depending on the method.
 
@@ -133,9 +133,9 @@ def interpolate_with_weights(
     vector2: A tensor of shape `[A1, ... , An, M]`, which stores a normalized
       vector in its last dimension.
     weight1: A `float` or a tensor describing weights for the `vector1` and with
-      a shape broadcastable to the shape of the input vectors.
+      a shape broadcastable to the shape of the inputs vectors.
     weight2: A `float` or a tensor describing weights for the `vector2` and with
-      a shape broadcastable to the shape of the input vectors.
+      a shape broadcastable to the shape of the inputs vectors.
     name: A name for this op. Defaults to "interpolate_with_weights".
 
   Returns:
@@ -156,7 +156,7 @@ def quaternion_weights(
 
   Given a percent and two normalized quaternions, this function returns the
   slerp weights. It can also produce extrapolation weights when percent is
-  outside of the [0, 1] range. It reduces to lerp when input quaternions are
+  outside of the [0, 1] range. It reduces to lerp when inputs quaternions are
   almost parallel or anti-parallel. Input quaternions are assumed to be
   normalized. The tf.graphics debug flag TFG_ADD_ASSERTS_TO_GRAPH defined
   in tfg_flags.py can be set to add assertions to the graph that check whether
@@ -229,7 +229,7 @@ def vector_weights(vector1: type_alias.TensorLike,
 
   This function applies geometric slerp to unnormalized vectors by first
   normalizing them to return the interpolation weights. It reduces to lerp when
-  input vectors are exactly anti-parallel.
+  inputs vectors are exactly anti-parallel.
 
   Note:
     In the following, A1 to An are optional batch dimensions.
@@ -239,10 +239,10 @@ def vector_weights(vector1: type_alias.TensorLike,
       vector in its last dimension.
     vector2: A tensor of shape `[A1, ... , An, M]`, which stores a normalized
       vector in its last dimension.
-    percent: A `float` or tensor with shape broadcastable to the shape of input
+    percent: A `float` or tensor with shape broadcastable to the shape of inputs
       vectors.
     eps: A small float for operation safety. If left None, its value is
-      automatically selected using dtype of input vectors.
+      automatically selected using dtype of inputs vectors.
     name: A name for this op. Defaults to "vector_weights".
 
   Raises:
@@ -251,7 +251,7 @@ def vector_weights(vector1: type_alias.TensorLike,
 
   Returns:
     Two tensors of shape `[A1, ... , An, 1]`, representing interpolation weights
-    for each input vector.
+    for each inputs vector.
   """
   with tf.name_scope(name):
     vector1 = tf.convert_to_tensor(value=vector1)

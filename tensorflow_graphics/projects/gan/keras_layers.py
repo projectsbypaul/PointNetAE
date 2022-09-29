@@ -189,13 +189,13 @@ class TwoByTwoNearestNeighborUpSampling(tf.keras.layers.Layer):
 
 
 class Blur2D(tf.keras.layers.Layer):
-  """The blur layer applies a [1, 2, 1] blur to the input channels.
+  """The blur layer applies a [1, 2, 1] blur to the inputs channels.
 
   If such a filter is applied after nearest neighbor upsampling it results in
   implementing bilinear upsamplig ([1, 3, 3, 1] kernel on bed of nails
   upsampling). Similarly this can be used to implement the analoguos
   anti-aliased bilinear downsampling ([1, 3, 3, 1] kernel) if applied to the
-  input feature map before average pooling.
+  inputs feature map before average pooling.
   """
 
   def __init__(self, **kwargs):
@@ -260,7 +260,7 @@ class Noise(tf.keras.layers.Layer):
   https://arxiv.org/pdf/1812.04948.pdf
 
   It samples a single channel Gaussian noise image and broadcasts and adds it to
-  the feature channels of the input using a learned per-feature channel scaling
+  the feature channels of the inputs using a learned per-feature channel scaling
   factor.
   """
 
@@ -269,7 +269,7 @@ class Noise(tf.keras.layers.Layer):
                                Sequence[tf.TensorShape]]) -> None:
     if not isinstance(input_shape, tf.TensorShape):
       if len(input_shape) != 2:
-        raise ValueError('Either a single input feature map or 2 inputs '
+        raise ValueError('Either a single inputs feature map or 2 inputs '
                          '(feature map and noise) are expected.')
       feature_map_shape, _ = input_shape
     else:
@@ -283,7 +283,7 @@ class Noise(tf.keras.layers.Layer):
     super().build(input_shape)
 
   def call(self, inputs: Union[Sequence[tf.Tensor], tf.Tensor]) -> tf.Tensor:
-    """Returns noise with dimensions corresponding to the input.
+    """Returns noise with dimensions corresponding to the inputs.
 
     Args:
       inputs: A single tensor containing the feature_map to which random noise
@@ -310,7 +310,7 @@ class DemodulatedConvolution(tf.keras.layers.Layer):
   Analyzing and Improving the Image Quality of StyleGAN".
   https://arxiv.org/pdf/1912.04958.pdf
 
-  It takes in the style input and applies demodulation on the features.
+  It takes in the style inputs and applies demodulation on the features.
   """
 
   def __init__(self,
@@ -368,7 +368,7 @@ class DemodulatedConvolution(tf.keras.layers.Layer):
     """Returns the demodaulted features.
 
     Args:
-      inputs: Two elements, the input feature map and the mapped latent code.
+      inputs: Two elements, the inputs feature map and the mapped latent code.
 
     Returns:
       The feature map after applying the demodulated convolution.

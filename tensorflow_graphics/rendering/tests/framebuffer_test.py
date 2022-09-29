@@ -29,12 +29,12 @@ class FramebufferTest(test_case.TestCase):
 
   def test_initialize_rasterized_attribute_with_wrong_rank(self):
     with self.assertRaisesRegex(ValueError,
-                                "Expected input value to be rank 4"):
+                                "Expected inputs value to be rank 4"):
       fb.RasterizedAttribute(tf.ones([4, 4, 1]))
 
   def test_initialize_rasterized_attribute_with_wrong_shapes(self):
     with self.assertRaisesRegex(tf.errors.InvalidArgumentError,
-                                "Expected all input shapes to be the same"):
+                                "Expected all inputs shapes to be the same"):
       fb.RasterizedAttribute(
           tf.ones([2, 4, 4, 1]), tf.ones([2, 4, 3, 1]), tf.ones([2, 4, 3, 5]))
 
@@ -47,7 +47,7 @@ class FramebufferTest(test_case.TestCase):
 
   def test_initialize_framebuffer_with_wrong_shapes(self):
     with self.assertRaisesRegex(tf.errors.InvalidArgumentError,
-                                "Expected all input shapes to be the same"):
+                                "Expected all inputs shapes to be the same"):
       fb.Framebuffer(
           fb.RasterizedAttribute(tf.ones([2, 4, 4, 3])), tf.ones([2, 4, 4, 1]),
           tf.ones([2, 4, 4, 3]), tf.ones([2, 4, 4, 1]),

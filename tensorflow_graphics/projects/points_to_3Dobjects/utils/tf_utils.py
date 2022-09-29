@@ -21,7 +21,7 @@ def gaussian_blur(img, sigma=5):
   """Applies gaussian blur to the given image.
 
   Args:
-    img: The input image.
+    img: The inputs image.
     sigma: The gaussian kernel size.
 
   Returns:
@@ -48,7 +48,7 @@ def euler_from_rotation_matrix(matrix: tf.Tensor, axis: int) -> tf.float32:
   """Extracts the euler angle of a 3D rotation around axis.
 
   Args:
-    matrix: The 3D input rotation matrix.
+    matrix: The 3D inputs rotation matrix.
     axis: The rotation axis.
 
   Returns:

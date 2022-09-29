@@ -33,7 +33,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_normalized_exception_not_raised(self, dtype):
-    """Checks that assert_normalized raises no exceptions for valid input."""
+    """Checks that assert_normalized raises no exceptions for valid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
     norm_vector = vector / tf.norm(tensor=vector, axis=-1, keepdims=True)
@@ -43,7 +43,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_normalized_exception_raised(self, dtype):
-    """Checks that assert_normalized raises exceptions for invalid input."""
+    """Checks that assert_normalized raises exceptions for invalid inputs."""
     vector = _pick_random_vector() + 10.0
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
     vector = tf.abs(vector)
@@ -110,7 +110,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_all_above_exception_not_raised(self, dtype):
-    """Checks that assert_all_above raises no exceptions for valid input."""
+    """Checks that assert_all_above raises no exceptions for valid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
 
@@ -146,7 +146,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_all_above_exception_raised(self, dtype):
-    """Checks that assert_all_above raises exceptions for invalid input."""
+    """Checks that assert_all_above raises exceptions for invalid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
 
@@ -182,7 +182,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_all_below_exception_not_raised(self, dtype):
-    """Checks that assert_all_below raises no exceptions for valid input."""
+    """Checks that assert_all_below raises no exceptions for valid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
 
@@ -218,7 +218,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_all_below_exception_raised(self, dtype):
-    """Checks that assert_all_below raises exceptions for invalid input."""
+    """Checks that assert_all_below raises exceptions for invalid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
 
@@ -253,7 +253,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_all_in_range_exception_not_raised(self, dtype):
-    """Checks that assert_all_in_range raises no exceptions for valid input."""
+    """Checks that assert_all_in_range raises no exceptions for valid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
 
@@ -292,7 +292,7 @@ class AssertsTest(test_case.TestCase):
 
   @parameterized.parameters(tf.float16, tf.float32, tf.float64)
   def test_assert_all_in_range_exception_raised(self, dtype):
-    """Checks that assert_all_in_range raises exceptions for invalid input."""
+    """Checks that assert_all_in_range raises exceptions for invalid inputs."""
     vector = _pick_random_vector()
     vector = tf.convert_to_tensor(value=vector, dtype=dtype)
 
@@ -379,7 +379,7 @@ class AssertsTest(test_case.TestCase):
   @parameterized.parameters(tf.float16, tf.float32, tf.float64, tf.int16,
                             tf.int32, tf.int64)
   def test_assert_binary_exception_raised(self, dtype):
-    """Checks that assert_binary raises exceptions for invalid input."""
+    """Checks that assert_binary raises exceptions for invalid inputs."""
     tensor_size = np.random.randint(3) + 1
     tensor_shape = np.random.randint(1, 10, size=(tensor_size)).tolist()
     num_elements = np.prod(tensor_shape)
@@ -409,7 +409,7 @@ class AssertsTest(test_case.TestCase):
   @parameterized.parameters(tf.float16, tf.float32, tf.float64, tf.int16,
                             tf.int32, tf.int64)
   def test_assert_binary_exception_not_raised(self, dtype):
-    """Checks that assert_binary raises no exceptions for valid input."""
+    """Checks that assert_binary raises no exceptions for valid inputs."""
     tensor_size = np.random.randint(3) + 1
     tensor_shape = np.random.randint(1, 10, size=(tensor_size)).tolist()
 

@@ -120,11 +120,11 @@ class SingleObjectModel:
     """Decode batch and place into inputs dict.
 
     Args:
-      batch: The input batch.
+      batch: The inputs batch.
       inputs: The dict to put the decoded batch.
 
     Returns:
-      Dict containing decoded input batch.
+      Dict containing decoded inputs batch.
     """
     inputs['filename'] = batch[0]
     inputs['image'] = batch[1]

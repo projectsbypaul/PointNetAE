@@ -21,7 +21,7 @@ def transform_points(points, transform):
   """Transform points.
 
   Args:
-    points: tf.Tensor, [batch_size, n_parts, n_points, n_dims], input points.
+    points: tf.Tensor, [batch_size, n_parts, n_points, n_dims], inputs points.
     transform: [batch_size, n_parts, transform_dims], transforming matices.
 
   Returns:

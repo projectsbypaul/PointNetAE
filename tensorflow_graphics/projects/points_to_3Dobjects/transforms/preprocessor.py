@@ -37,7 +37,7 @@ def preprocess(tensor_dict,
       expect to receive and return. For each key (which is the function), there
       should be a list with the keys in the tensor_dict. The order of the list
       should be the same as the order in the function arguments. Its values can
-      also be None if the input argument is not used.
+      also be None if the inputs argument is not used.
     preprocess_vars_cache: PreprocessorCache object that records previously
       performed augmentations. Updated in-place. If this function is called
       multiple times with the same non-null cache, it will perform
@@ -53,7 +53,7 @@ def preprocess(tensor_dict,
                     do not exist in tensor_dict.
 
   The output of the function should return the tensors that will be assigned to
-  tensor_dict keys using the same order mapping as the input in func_arg_map.
+  tensor_dict keys using the same order mapping as the inputs in func_arg_map.
   Example to resize image:
     preprocess_options = [(preprocessor.resize_image, {'new_height': 600,
     'new_width': 1024})]

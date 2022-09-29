@@ -52,7 +52,7 @@ class UtilsCheckValidGraphConvolutionInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_convolution_input_exception_raised_types(
       self, err_msg, data_type, neighbors_type, sizes_type):
-    """Check the type errors for invalid input types."""
+    """Check the type errors for invalid inputs types."""
     data = tf.convert_to_tensor(
         value=np.random.uniform(size=(2, 2, 2)).astype(data_type))
     neighbors = _dense_to_sparse(np.ones(shape=(2, 2, 2), dtype=neighbors_type))
@@ -69,7 +69,7 @@ class UtilsCheckValidGraphConvolutionInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_convolution_input_exception_not_raised_types(
       self, data_type, neighbors_type, sizes_type):
-    """Check that no exceptions are raised for valid input types."""
+    """Check that no exceptions are raised for valid inputs types."""
     data = tf.convert_to_tensor(
         value=np.random.uniform(size=(2, 2, 2)).astype(data_type))
     neighbors = _dense_to_sparse(np.ones(shape=(2, 2, 2), dtype=neighbors_type))
@@ -93,7 +93,7 @@ class UtilsCheckValidGraphConvolutionInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_convolution_input_exception_not_raised_shapes(
       self, *shapes):
-    """Check that valid input shapes do not trigger any exceptions."""
+    """Check that valid inputs shapes do not trigger any exceptions."""
     data, neighbors, sizes = self._create_default_tensors_from_shapes(shapes)
 
     self.assert_exception_is_not_raised(
@@ -112,7 +112,7 @@ class UtilsCheckValidGraphConvolutionInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_convolution_input_exception_not_raised_dynshapes(
       self, *shapes):
-    """Check that valid dynamic input shapes do not trigger any exceptions."""
+    """Check that valid dynamic inputs shapes do not trigger any exceptions."""
     dtypes = [tf.float32, tf.float32]
     sparse_tensors = [False, True]
 
@@ -158,7 +158,7 @@ class UtilsCheckValidGraphConvolutionInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_convolution_input_exception_raised_shapes(
       self, error_msg, *shapes):
-    """Check that invalid input shapes trigger the right exceptions."""
+    """Check that invalid inputs shapes trigger the right exceptions."""
     data, neighbors, sizes = self._create_default_tensors_from_shapes(shapes)
 
     self.assert_exception_is_raised(
@@ -181,7 +181,7 @@ class UtilsCheckValidGraphPoolingInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_pooling_exception_raised_types(
       self, err_msg, data_type, pool_map_type, sizes_type):
-    """Check the type errors for invalid input types."""
+    """Check the type errors for invalid inputs types."""
     data = tf.convert_to_tensor(value=np.ones((2, 3, 3), dtype=data_type))
     pool_map = _dense_to_sparse(np.ones((2, 3, 3), dtype=pool_map_type))
     sizes = tf.convert_to_tensor(
@@ -198,7 +198,7 @@ class UtilsCheckValidGraphPoolingInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_pooling_exception_not_raised_types(
       self, data_type, pool_map_type, sizes_type):
-    """Check there are no exceptions for valid input types."""
+    """Check there are no exceptions for valid inputs types."""
     data = tf.convert_to_tensor(value=np.ones((2, 3, 3), dtype=data_type))
     pool_map = _dense_to_sparse(np.ones((2, 3, 3), dtype=pool_map_type))
     sizes = tf.convert_to_tensor(
@@ -218,7 +218,7 @@ class UtilsCheckValidGraphPoolingInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_pooling_exception_not_raised_shapes(
       self, data_shape, pool_map_shape, sizes):
-    """Check that valid input shapes do not trigger any exceptions."""
+    """Check that valid inputs shapes do not trigger any exceptions."""
     data = tf.convert_to_tensor(value=np.ones(data_shape, dtype=np.float32))
     pool_map = _dense_to_sparse(np.ones(pool_map_shape, dtype=np.float32))
     sizes = sizes if sizes is None else tf.convert_to_tensor(value=sizes)
@@ -237,7 +237,7 @@ class UtilsCheckValidGraphPoolingInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_pooling_exception_not_raised_dynamic_shapes(
       self, *shapes):
-    """Check that valid dynamic input shapes do not trigger any exceptions."""
+    """Check that valid dynamic inputs shapes do not trigger any exceptions."""
     dtypes = [tf.float32, tf.float32]
     sparse_tensors = [False, True]
 
@@ -281,7 +281,7 @@ class UtilsCheckValidGraphPoolingInputTests(test_case.TestCase):
   )
   def test_check_valid_graph_pooling_exception_raised_shapes(
       self, err_msg, data_shape, pool_map_shape, sizes):
-    """Check that invalid input shapes trigger the right exceptions."""
+    """Check that invalid inputs shapes trigger the right exceptions."""
     data = tf.convert_to_tensor(value=np.ones(data_shape, dtype=np.float32))
     pool_map = _dense_to_sparse(np.ones(pool_map_shape, dtype=np.float32))
     sizes = sizes if sizes is None else tf.convert_to_tensor(value=sizes)
@@ -299,12 +299,12 @@ class UtilsFlattenBatchTo2dTests(test_case.TestCase):
 
   @parameterized.parameters(((5, 3),), ((3,),))
   def test_input_rank_exception_raised(self, *shapes):
-    """Check that invalid input data rank triggers the right exceptions."""
+    """Check that invalid inputs data rank triggers the right exceptions."""
     self.assert_exception_is_raised(utils.flatten_batch_to_2d,
                                     "must have a rank greater than 2", shapes)
 
   def test_flatten_batch_to_2d_exception_raised_types(self):
-    """Check the exception when input is not an integer."""
+    """Check the exception when inputs is not an integer."""
     with self.assertRaisesRegexp(TypeError,
                                  "'sizes' must have an integer type."):
       utils.flatten_batch_to_2d(np.ones((3, 4, 3)), np.ones((3,)))
@@ -315,7 +315,7 @@ class UtilsFlattenBatchTo2dTests(test_case.TestCase):
   )
   def test_check_flatten_batch_to_2d_exception_not_raised_dynamic_shapes(
       self, *shapes):
-    """Check that valid dynamic input shapes do not trigger any exceptions."""
+    """Check that valid dynamic inputs shapes do not trigger any exceptions."""
     dtypes = [tf.float32]
 
     if shapes[1] is not None:
@@ -432,7 +432,7 @@ class UtilsUnflatten2dToBatchTest(test_case.TestCase):
                                     "data must have a rank of 2", shapes)
 
   def test_input_type_exception_raised(self):
-    """Check that invalid input types trigger the right exception."""
+    """Check that invalid inputs types trigger the right exception."""
     with self.assertRaisesRegexp(TypeError,
                                  "'sizes' must have an integer type."):
       utils.unflatten_2d_to_batch(np.ones((3, 4)), np.ones((3,)))
@@ -460,7 +460,7 @@ class UtilsUnflatten2dToBatchTest(test_case.TestCase):
     self.assertAllEqual(flattened_unpadded, data)
 
   def test_unflatten_batch_to_2d_preset(self):
-    """Test unflattening with a preset input."""
+    """Test unflattening with a preset inputs."""
     data = 1. + np.reshape(np.arange(12, dtype=np.float32), (6, 2))
     sizes = (2, 3, 1)
     output_true = np.array(
@@ -517,7 +517,7 @@ class UtilsConvertToBlockDiag2dTests(test_case.TestCase):
         tf.sparse.to_dense(block_diag_tensor) * mask, np.zeros_like(mask))
 
   def test_convert_to_block_diag_2d_exception_raised_types(self):
-    """Check the exception when input is not a SparseTensor."""
+    """Check the exception when inputs is not a SparseTensor."""
     with self.assertRaisesRegexp(TypeError, "'data' must be a 'SparseTensor'."):
       utils.convert_to_block_diag_2d(np.zeros(shape=(3, 3, 3)))
 
@@ -529,7 +529,7 @@ class UtilsConvertToBlockDiag2dTests(test_case.TestCase):
       )
 
   def test_convert_to_block_diag_2d_exception_raised_ranks(self):
-    """Check the exception when input data rank is invalid."""
+    """Check the exception when inputs data rank is invalid."""
     with self.assertRaisesRegexp(ValueError, "must have a rank greater than 2"):
       utils.convert_to_block_diag_2d(_dense_to_sparse(np.ones(shape=(3, 3))))
 

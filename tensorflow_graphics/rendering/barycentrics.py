@@ -29,7 +29,7 @@ def differentiable_barycentrics(
     use_vectorized_map: bool = True) -> fb.Framebuffer:
   """Computes differentiable barycentric coordinates from a Framebuffer.
 
-  The barycentric coordinates will be differentiable w.r.t. the input vertices.
+  The barycentric coordinates will be differentiable w.r.t. the inputs vertices.
   Later, we may support derivatives w.r.t. pixel position for mip-mapping.
 
   Args:

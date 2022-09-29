@@ -23,7 +23,7 @@ class InputDownsampleBlock(tf.keras.layers.Layer):
   """Block for the initial feature downsampling.
 
   Attributes:
-    input_shape: Tuple with the input shape i.e. (None, 512, 512, 3).
+    input_shape: Tuple with the inputs shape i.e. (None, 512, 512, 3).
     out_dims: Integer tuple, number of filter in the first and second
       convolutions.
     norm_type: Object type of the norm to use.
@@ -220,7 +220,7 @@ class Hourglass(tf.keras.Model):
     heads: Dict, keys are head names, value for each key is a dict with {'dim':
       dim} where dim is the output dimensionality of the last convolution.
     features_dims: Integer list, feature dimensionality at the output of the
-      input downsampling convolution block and at the output of each encoder
+      inputs downsampling convolution block and at the output of each encoder
       stage.
     number_hourglasses: Integer, number of hourglasses to stack.
     depth: Integer, depth of the encoder.

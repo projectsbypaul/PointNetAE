@@ -24,7 +24,7 @@ from tensorflow_datasets import features
 class Pose(features.FeaturesDict):
   """`FeatureConnector` for 3d pose representations.
 
-  During `_generate_examples`, the feature connector accepts as input any of:
+  During `_generate_examples`, the feature connector accepts as inputs any of:
 
     * `dict:` A dictionary containing the rotation and translation of the
     object (see output format below).

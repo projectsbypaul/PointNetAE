@@ -537,7 +537,7 @@ def normalized_random_uniform(quaternion_shape: List[int],
 def normalized_random_uniform_initializer():
   """Random unit quaternion initializer."""
 
-  # Since variable initializers must take `shape` as input, we cannot prevent
+  # Since variable initializers must take `shape` as inputs, we cannot prevent
   # a clash between util.shape and the argument here. Therefore we have to
   # disable redefined-outer-name for this function.
   # pylint: disable=redefined-outer-name

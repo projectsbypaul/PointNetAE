@@ -27,7 +27,7 @@ from tensorflow_graphics.io import triangle_mesh
 class TriangleMesh(features.FeaturesDict):
   """`FeatureConnector` for triangle meshes.
 
-  During `_generate_examples`, the feature connector accepts as input any of:
+  During `_generate_examples`, the feature connector accepts as inputs any of:
 
     * `str`: path to a {obj,stl,ply,glb} triangle mesh.
     * `trimesh.Trimesh`: A triangle mesh object.
@@ -46,7 +46,7 @@ class TriangleMesh(features.FeaturesDict):
     * 'faces': An `int64` tensor with shape `[F, 3]` denoting the face vertex
     indices, where F is the number of faces in the mesh.
 
-    Note: In case the input specifies a Scene (with multiple meshes), the output
+    Note: In case the inputs specifies a Scene (with multiple meshes), the output
     will be a single TriangleMesh which combines all the triangle meshes in the
     scene.
   """

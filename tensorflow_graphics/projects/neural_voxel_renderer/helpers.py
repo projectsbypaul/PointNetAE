@@ -148,7 +148,7 @@ def place_frustum_sampling_points_at_blender_camera(sampling_points,
 
 
 def transform_volume(voxels, transformation_matrix, voxel_size=(128, 128, 128)):
-  """Apply a transformation to the input voxels."""
+  """Apply a transformation to the inputs voxels."""
   voxels = tf.convert_to_tensor(voxels)
   volume_sampling = sampling_points_from_3d_grid(voxel_size)
   volume_sampling = tf.matmul(transformation_matrix,

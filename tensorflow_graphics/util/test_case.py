@@ -113,8 +113,8 @@ class TestCase(parameterized.TestCase, tf.test.TestCase):
     """Creates a list of placeholders based on a list of shapes.
 
     Args:
-      shapes: A tuple or list of the input shapes.
-      dtypes: A list of input types.
+      shapes: A tuple or list of the inputs shapes.
+      dtypes: A list of inputs types.
       sparse_tensors: A `bool` list denoting if placeholder is a SparseTensor.
         This is ignored in eager mode - in eager execution, only dense
         placeholders will be created.
@@ -166,8 +166,8 @@ class TestCase(parameterized.TestCase, tf.test.TestCase):
 
     Args:
       func: A function to exectute.
-      shapes: A tuple or list of the input shapes.
-      dtypes: A list of input types.
+      shapes: A tuple or list of the inputs shapes.
+      dtypes: A list of inputs types.
       sparse_tensors: A list of `bool` indicating if the inputs are
         SparseTensors. Defaults to all `False`. This is used for creating
         SparseTensor placeholders in graph mode.
@@ -198,8 +198,8 @@ class TestCase(parameterized.TestCase, tf.test.TestCase):
     Args:
       func: A function to exectute.
       error_msg: The error message of the exception.
-      shapes: A tuple or list of the input shapes.
-      dtypes: A list of input types.
+      shapes: A tuple or list of the inputs shapes.
+      dtypes: A list of inputs types.
       sparse_tensors: A list of `bool` indicating if the inputs are
         SparseTensors. Defaults to all `False`. This is used for creating
         SparseTensor placeholders in graph mode.
@@ -343,15 +343,15 @@ class TestCase(parameterized.TestCase, tf.test.TestCase):
 
     Args:
       func: A function to execute with tf-lite.
-      shapes: A tuple or list of input shapes.
-      dtypes: A list of input types.
+      shapes: A tuple or list of inputs shapes.
+      dtypes: A list of inputs types.
       test_inputs: A tuple or list of inputs. If not provided the test inputs
         will be randomly generated.
     """
     if tf.executing_eagerly():
       # Currently TFLite conversion is not supported in eager mode.
       self.skipTest(reason="Graph mode only test")
-    # Generate graph with the function given as input.
+    # Generate graph with the function given as inputs.
     in_tensors = self._create_placeholders_from_shapes(shapes, dtypes)
     out_tensors = func(*in_tensors)
     if not isinstance(out_tensors, (list, tuple)):

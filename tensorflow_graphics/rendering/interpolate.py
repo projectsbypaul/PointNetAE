@@ -25,7 +25,7 @@ def interpolate_vertex_attribute(
     framebuffer: fb.Framebuffer,
     background_value: Optional[Union[tf.Tensor, Iterable[float]]] = None
 ) -> fb.RasterizedAttribute:
-  """Interpolate a single vertex attribute across the input framebuffer.
+  """Interpolate a single vertex attribute across the inputs framebuffer.
 
   Args:
     attribute: 2-D or 3-D vertex attribute Tensor with shape [batch,
@@ -48,7 +48,7 @@ def interpolate_vertex_attribute(
   # 'corner points') ids to look up the attributes for each pixel's triangle.
   # Handles batched or unbatched attributes. In either case, corner_attribute
   # will be shaped [batch_size, pixel_count, 3, num_channels] (with
-  # batch_size = 1 if input is unbatched).
+  # batch_size = 1 if inputs is unbatched).
   if len(attribute.shape) == 3:
     corner_attribute = tf.gather(attribute, vertex_ids, batch_dims=1)
   else:

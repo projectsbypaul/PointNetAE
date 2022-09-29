@@ -177,7 +177,7 @@ def check_static(tensor: tf.Tensor,
       thrown.
 
   Raises:
-    ValueError: If any input is not of the expected types, or if one of the
+    ValueError: If any inputs is not of the expected types, or if one of the
       checks described above fails.
   """
   rank = tensor.shape.ndims

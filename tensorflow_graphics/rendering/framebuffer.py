@@ -33,7 +33,7 @@ class RasterizedAttribute(object):
   d_dy: Optional[tf.Tensor] = None
 
   def __post_init__(self):
-    # Checks that all input tensors have the same shape and rank.
+    # Checks that all inputs tensors have the same shape and rank.
     tensors = [self.value, self.d_dx, self.d_dy]
     shapes = [
         tensor.shape.as_list() for tensor in tensors if tensor is not None
@@ -47,7 +47,7 @@ class RasterizedAttribute(object):
     value_rank = len(self.value.shape)
     if value_rank not in (4, 5):
       raise ValueError(
-          f"Expected input value to be rank 4 or 5, but is {value_rank}")
+          f"Expected inputs value to be rank 4 or 5, but is {value_rank}")
 
     same_as_value = True
     static_shapes = [self.value.shape]
@@ -62,7 +62,7 @@ class RasterizedAttribute(object):
     tf.debugging.assert_equal(
         same_as_value,
         True,
-        message="Expected all input shapes to be the same but found: " +
+        message="Expected all inputs shapes to be the same but found: " +
         ", ".join([str(s) for s in static_shapes]))
 
   @property
@@ -132,7 +132,7 @@ class Framebuffer(object):
     tf.debugging.assert_equal(
         all_same_as_first,
         True,
-        message="Expected all input shapes to be the same "
+        message="Expected all inputs shapes to be the same "
         "(up to channels), but found: " + ", ".join([str(s) for s in shapes]))
 
   @property

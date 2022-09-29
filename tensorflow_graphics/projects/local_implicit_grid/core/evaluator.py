@@ -189,7 +189,7 @@ class EncoderEvaluator(object):
     """Strided evaluation of full grid into feature grid.
 
     Args:
-      grid: [batch, gres, gres, gres, 1] input feature grid.
+      grid: [batch, gres, gres, gres, 1] inputs feature grid.
     Returns:
       codes: [batch, codelen] output feature gird.
     """
@@ -208,7 +208,7 @@ class EncoderEvaluator(object):
 
 
 class FullGridEncoderEvaluator(object):
-  """Load pretrained grid encoder and evaluate a full input grid.
+  """Load pretrained grid encoder and evaluate a full inputs grid.
 
   Performs windowed encoding and outputs an encoded feature grid.
   """
@@ -303,7 +303,7 @@ class FullGridEncoderEvaluator(object):
     """Strided evaluation of full grid into feature grid.
 
     Args:
-      grid: [gres, gres, gres] input feature grid.
+      grid: [gres, gres, gres] inputs feature grid.
 
     Returns:
       ogrid: [out_grid_res, out_grid_res, out_grid_res, codelen] output feature
@@ -352,7 +352,7 @@ class LIGEvaluator(object):
     Args:
       ckpt: str, path to checkpoint.
       size: list or tuple of ints, grid dimension in each dimension.
-      in_features: int, number of input channels.
+      in_features: int, number of inputs channels.
       out_features: int, number of output channels.
       x_location_max: float, relative coordinate range for one voxel.
       num_filters: int, number of filters for refiner.
@@ -507,7 +507,7 @@ class UNetEvaluator(object):
       self.saver.restore(self.sess, self.ckpt)
 
   def eval_grid(self, input_grid):
-    """Evaluate input grid (no batching).
+    """Evaluate inputs grid (no batching).
 
     Args:
       input_grid: [in_grid_res, in_grid_res, in_grid_res] tensor.

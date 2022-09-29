@@ -38,7 +38,7 @@ def gradient_penalty_loss(real_data: Union[tf.Tensor, Sequence[tf.Tensor]],
     real_data: Samples from the real data.
     generated_data: Samples from the generated data.
     discriminator: The Keras model of the discriminator. This model is expected
-      to take as input a tf.Tensor or a sequence of tf.Tensor depending on what
+      to take as inputs a tf.Tensor or a sequence of tf.Tensor depending on what
       is provided as generated_data and real_data.
     weight: The weight of the loss.
     eps: A small positive value that is added to the argument of the square root
@@ -138,7 +138,7 @@ def r1_regularization(real_data: Union[tf.Tensor, Sequence[tf.Tensor]],
   Args:
     real_data: Samples from the real data.
     discriminator: The Keras model of the discriminator. This model is expected
-      to take as input a tf.Tensor or a sequence of tf.Tensor depending on what
+      to take as inputs a tf.Tensor or a sequence of tf.Tensor depending on what
       is provided as real_data.
     weight: The weight of the loss.
     name: The name scope of the loss.

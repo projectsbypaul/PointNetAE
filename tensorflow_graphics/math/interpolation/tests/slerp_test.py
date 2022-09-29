@@ -116,7 +116,7 @@ class SlerpTest(test_case.TestCase):
                                   test_outputs, tile=False)
 
   def test_unnormalized_quaternion_weights_exception_raised(self):
-    """Tests if quaternion_weights raise exceptions for unnormalized input."""
+    """Tests if quaternion_weights raise exceptions for unnormalized inputs."""
     q1 = self._pick_random_quaternion()
     q2 = tf.nn.l2_normalize(q1, axis=-1)
     p = tf.constant((0.5), dtype=q1.dtype)
@@ -130,7 +130,7 @@ class SlerpTest(test_case.TestCase):
       ((None, 4), (None, 4), (None, 4)),
   )
   def test_quaternion_weights_exception_not_raised(self, *shapes):
-    """Tests that valid input shapes do not raise exceptions for qslerp."""
+    """Tests that valid inputs shapes do not raise exceptions for qslerp."""
     self.assert_exception_is_not_raised(slerp.quaternion_weights, shapes)
 
   @parameterized.parameters(
@@ -234,7 +234,7 @@ class SlerpTest(test_case.TestCase):
                                   test_outputs, tile=False)
 
   def test_vector_weights_reduce_to_lerp_preset(self):
-    """Tests if vector slerp reduces to lerp for identical vectors as input."""
+    """Tests if vector slerp reduces to lerp for identical vectors as inputs."""
     q1 = tf.constant((_SQRT2_DIV2, 0.0, _SQRT2_DIV2, 0.0))
     q2 = tf.constant((_SQRT2_DIV2, 0.0, _SQRT2_DIV2, 0.0))
     p = tf.constant((0.75,), dtype=q1.dtype)

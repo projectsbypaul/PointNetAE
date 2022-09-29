@@ -44,7 +44,7 @@ def to_rgb(input_tensor: tf.Tensor,
   """Converts a feature map to an rgb output.
 
   Args:
-    input_tensor: The input feature map.
+    input_tensor: The inputs feature map.
     kernel_initializer: The kernel initializer to use.
     name: The name of the layer.
 
@@ -200,10 +200,10 @@ def from_rgb(input_tensor: tf.Tensor,
              kernel_initializer: _KerasInitializer,
              relu_leakiness: float,
              name: str = 'from_rgb') -> tf.Tensor:
-  """Converts a rgb input to a feature map.
+  """Converts a rgb inputs to a feature map.
 
   Args:
-    input_tensor: The input feature map.
+    input_tensor: The inputs feature map.
     use_fan_in_scaled_kernel: If a fan in scaled kernel should be used.
     num_channels: The number of output channels.
     kernel_initializer: The kernel initializer to use.
@@ -242,7 +242,7 @@ def create_discriminator(
   This architecture is implemented according to the paper "Progressive growing
   of GANs for Improved Quality, Stability, and Variation"
   https://arxiv.org/abs/1710.10196
-  The intermediate outputs can optionally be given as input for the architecture
+  The intermediate outputs can optionally be given as inputs for the architecture
   of "MSG-GAN: Multi-Scale Gradient GAN for Stable Image Synthesis"
   https://arxiv.org/abs/1903.06048
 
@@ -259,7 +259,7 @@ def create_discriminator(
       the network.
     use_intermediate_inputs: If true the model expects a list of tf.Tensors with
       increasing resolution starting with the starting_size up to the final
-      resolution as input.
+      resolution as inputs.
     use_antialiased_bilinear_downsampling: If true the downsampling operation is
       ani-aliased bilinear downsampling with a [1, 3, 3, 1] tent kernel. If
       false standard bilinear downsampling, i.e. average pooling is used ([1, 1]

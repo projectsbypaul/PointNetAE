@@ -63,7 +63,7 @@ def _maybe_upsample_and_add_outputs(
 
 def get_noise_dimensions(
     num_upsampling_blocks: int) -> Sequence[Tuple[int, int, int]]:
-  """Returns the dimensions of the noise inputs for noise input.
+  """Returns the dimensions of the noise inputs for noise inputs.
 
   This function can be used to determine the shape of the noise that needs to be
   fed into the synthesis network or generator network whenn use_noise_inputs is
@@ -86,7 +86,7 @@ def get_noise_dimensions(
 
 
 def _create_noise_inputs(num_upsampling_blocks: int) -> List[tf.Tensor]:
-  """Creates the noise input layers."""
+  """Creates the noise inputs layers."""
   noise_dimensions = get_noise_dimensions(num_upsampling_blocks)
   noise_inputs = [
       tf.keras.Input(noise_dimension) for noise_dimension in noise_dimensions
@@ -113,7 +113,7 @@ def create_synthesis_network(
       block. This argument also determines how many upsampling blocks are added.
     relu_leakiness: Slope of the negative part of the leaky relu.
     use_bilinear_upsampling: If true bilinear upsampling is used.
-    use_noise_inputs: If the model takes noise as input, if false noise is
+    use_noise_inputs: If the model takes noise as inputs, if false noise is
       sampled randomly.
     name: The name of the Keras model.
 
@@ -196,7 +196,7 @@ def create_style_based_generator(
     use_bilinear_upsampling: If true bilinear upsampling is used.
     normalize_latent_code: If true the latent code is normalized to unit length
       before feeding it to the network.
-    use_noise_inputs: If the model takes noise as input, if false noise is
+    use_noise_inputs: If the model takes noise as inputs, if false noise is
       sampled randomly.
     name: The name of the Keras model.
 
@@ -263,7 +263,7 @@ def create_discriminator(
       ani-aliased bilinear downsampling with a [1, 3, 3, 1] tent kernel. If
       false standard bilinear downsampling, i.e. average pooling is used ([1, 1]
       tent kernel).
-    num_channels: The number of channels of the input tensor.
+    num_channels: The number of channels of the inputs tensor.
     name: The name of the Keras model.
 
   Returns:

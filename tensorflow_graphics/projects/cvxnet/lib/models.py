@@ -132,10 +132,10 @@ class MultiConvexNet(keras.Model):
       return loss, iou
 
   def encode(self, img, training):
-    """Encode the input image into hyperplane parameters.
+    """Encode the inputs image into hyperplane parameters.
 
     Args:
-      img: Tensor, [batch_size, height, width, channels], input image.
+      img: Tensor, [batch_size, height, width, channels], inputs image.
       training: bool, use training mode if true.
 
     Returns:

@@ -55,8 +55,8 @@ def check_valid_graph_convolution_input(data: type_alias.TensorLike,
     sizes: An `int` tensor of shape `[A1, ..., An]`. Optional, can be `None`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   if not data.dtype.is_floating:
     raise TypeError("'data' must have a float type.")
@@ -107,8 +107,8 @@ def check_valid_graph_pooling_input(data: type_alias.TensorLike,
     sizes: An `int` tensor of shape `[A1, ..., An, 2]`. Can be `None`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   if not data.dtype.is_floating:
     raise TypeError("'data' must have a float type.")
@@ -159,8 +159,8 @@ def check_valid_graph_unpooling_input(data: type_alias.TensorLike,
     sizes: An `int` tensor of shape `[A1, ..., A3, 2]`. Can be `None`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   if not data.dtype.is_floating:
     raise TypeError("'data' must have a float type.")
@@ -247,7 +247,7 @@ def flatten_batch_to_2d(data: type_alias.TensorLike,
       `[A1, ..., An, ..., D1, D3]`.
 
   Raises:
-    ValueError: if the input tensor dimensions are invalid.
+    ValueError: if the inputs tensor dimensions are invalid.
   """
   with tf.name_scope(name):
     data = tf.convert_to_tensor(value=data)
@@ -306,7 +306,7 @@ def unflatten_2d_to_batch(data: type_alias.TensorLike,
 
   The `data` tensor with shape `[D1, D2]` will be mapped to a tensor with shape
   `[A1, ..., An, max_rows, D2]` where `max_rows` defaults to `max(sizes)`.
-  `sizes` determines the segment of rows in the input that get mapped to a
+  `sizes` determines the segment of rows in the inputs that get mapped to a
   particular batch dimension (`sum(sizes) == D1`).
 
   Examples:
@@ -397,7 +397,7 @@ def convert_to_block_diag_2d(data: tf.sparse.SparseTensor,
   shape for each inner `[D1, D2]` matrix. The additional (padded) rows and
   columns will be omitted in the block diagonal output.
 
-  If padded (`sizes != None`), the input should not contain any sparse indices
+  If padded (`sizes != None`), the inputs should not contain any sparse indices
   outside the bounds indicated by `sizes`. Setting `validate_indices=True` will
   explicitly filter any invalid sparse indices before block diagonalization.
 
@@ -415,8 +415,8 @@ def convert_to_block_diag_2d(data: tf.sparse.SparseTensor,
     A 2d block-diagonal SparseTensor.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   with tf.name_scope(name):
     data = tf.compat.v1.convert_to_tensor_or_sparse_tensor(value=data)

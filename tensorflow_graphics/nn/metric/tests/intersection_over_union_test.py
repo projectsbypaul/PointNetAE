@@ -63,7 +63,7 @@ class IntersectionOverUnionTest(test_case.TestCase):
       (r"0.* 0\.7.* 0", [0., 0.7, 0], [0., 1.0, 0.0], 1),
       (r"0\.3.* 1.* 0.*", [0., 1.0, 0], [0.3, 1.0, 0.0], 1),
       # Grid size must be less or equal to min_inputs_dimensions.
-      (r"Invalid reduction dimension .*\-2 for input with 1 dimension",
+      (r"Invalid reduction dimension .*\-2 for inputs with 1 dimension",
        [1., 0.], [[0., 1.0], [1., 1.0]], 2),
   )
   def test_evaluate_invalid_argument_exception_raised(self, error_msg,

@@ -198,7 +198,7 @@ def from_rotation_matrix(rotation_matrix: type_alias.TensorLike,
 def inverse(axis: type_alias.TensorLike,
             angle: type_alias.TensorLike,
             name: str = "axis_angle_inverse") -> Tuple[tf.Tensor, tf.Tensor]:
-  """Computes the axis-angle that is the inverse of the input axis-angle.
+  """Computes the axis-angle that is the inverse of the inputs axis-angle.
 
   Note:
     In the following, A1 to An are optional batch dimensions.

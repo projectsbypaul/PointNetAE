@@ -199,7 +199,7 @@ def is_valid(matrix: type_alias.TensorLike,
 
   Returns:
     A tensor of type `bool` and shape `[A1, ..., An, 1]` where False indicates
-    that the input is not a valid rotation matrix.
+    that the inputs is not a valid rotation matrix.
   """
   with tf.name_scope(name):
     matrix = tf.convert_to_tensor(value=matrix)

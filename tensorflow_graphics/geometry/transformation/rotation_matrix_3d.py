@@ -91,7 +91,7 @@ def assert_rotation_matrix_normalized(
       'assert_rotation_matrix_normalized'.
 
   Returns:
-    The input matrix, with dependence on the assertion operator in the graph.
+    The inputs matrix, with dependence on the assertion operator in the graph.
 
   Raises:
     tf.errors.InvalidArgumentError: If rotation_matrix_3d is not normalized.
@@ -354,7 +354,7 @@ def is_valid(matrix: type_alias.TensorLike,
 
   Returns:
     A tensor of type `bool` and shape `[A1, ..., An, 1]` where False indicates
-    that the input is not a valid rotation matrix.
+    that the inputs is not a valid rotation matrix.
   """
   with tf.name_scope(name):
     matrix = tf.convert_to_tensor(value=matrix)

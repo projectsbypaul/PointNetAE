@@ -54,7 +54,7 @@ def blend(points: type_alias.TensorLike,
     represents a 3d point.
 
   Raises:
-    ValueError: If the shape of the input tensors are not supported.
+    ValueError: If the shape of the inputs tensors are not supported.
   """
   with tf.name_scope(name):
     points = tf.convert_to_tensor(value=points)

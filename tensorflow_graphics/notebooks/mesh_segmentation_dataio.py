@@ -161,7 +161,7 @@ def _tfrecords_to_dataset(tfrecords: List[str],
     repeat: The `bool` flag denoting whether to repeat the dataset.
     sloppy: The `bool` flag denoting if elements are produced in deterministic
       order.
-    max_readers: The `int` number denoting the maximum number of input tfrecords
+    max_readers: The `int` number denoting the maximum number of inputs tfrecords
       to interleave from in parallel.
 
   Returns:
@@ -324,7 +324,7 @@ def create_input_from_dataset(
     dataset_fn: Callable[..., Any],
     files: List[str],
     io_params: Dict[str, Any]) -> Tuple[Dict[str, Any], tf.Tensor]:
-  """Creates input function given dataset generator and input files.
+  """Creates inputs function given dataset generator and inputs files.
 
   Args:
     dataset_fn: A dataset generator function.

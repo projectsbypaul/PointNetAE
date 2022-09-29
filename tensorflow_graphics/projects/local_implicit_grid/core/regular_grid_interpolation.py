@@ -25,7 +25,7 @@ def get_interp_coefficients(grid,
   """Regular grid interpolator, returns inpterpolation coefficients.
 
   Args:
-    grid: `[batch_size, *size, features]` tensor, input feature grid.
+    grid: `[batch_size, *size, features]` tensor, inputs feature grid.
     pts: `[batch_size, num_points, dim]` tensor, coordinates of points that
     in each dim are within the range (min_grid_value[dim], max_grid_value[dim]).
     min_grid_value: tuple, minimum value in each dimension corresponding to the
@@ -34,7 +34,7 @@ def get_interp_coefficients(grid,
       grid.
   Returns:
     lat: `[batch_size, num_points, 2**dim, features]` tensor, neighbor
-    latent codes for each input point.
+    latent codes for each inputs point.
     weights: `[batch_size, num_points, 2**dim]` tensor, bi/tri-linear
     interpolation weights for each neighbor.
     xloc: `[batch_size, num_points, 2**dim, dim]`tensor, relative coordinates.
@@ -108,7 +108,7 @@ def regular_grid_interpolation(grid,
   """Regular grid interpolator, returns inpterpolation values.
 
   Args:
-    grid: `[batch_size, *size, features]` tensor, input feature grid.
+    grid: `[batch_size, *size, features]` tensor, inputs feature grid.
     pts: `[batch_size, num_points, dim]` tensor, coordinates of points that
     in each dim are within the range (min_grid_value[dim], max_grid_value[dim]).
     min_grid_value: tuple, minimum value in each dimension corresponding to the

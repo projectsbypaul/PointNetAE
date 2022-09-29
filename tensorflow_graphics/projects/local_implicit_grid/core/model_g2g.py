@@ -82,7 +82,7 @@ class UNet3D(tf.keras.layers.Layer):
     """Initialization.
 
     Args:
-      in_grid_res: int, input grid resolution, must be powers of 2.
+      in_grid_res: int, inputs grid resolution, must be powers of 2.
       out_grid_res: int, output grid resolution, must be powers of 2.
       num_filters: int, number of feature layers at smallest grid resolution.
       max_filters: int, max number of feature layers at any resolution.
@@ -105,7 +105,7 @@ class UNet3D(tf.keras.layers.Layer):
 
     self.num_in_level = math.log(self.in_grid_res, 2)
     self.num_out_level = math.log(self.out_grid_res, 2)
-    self.num_in_level = int(self.num_in_level)  # number of input levels
+    self.num_in_level = int(self.num_in_level)  # number of inputs levels
     self.num_out_level = int(self.num_out_level)  # number of output levels
 
     self._create_layers()
@@ -136,7 +136,7 @@ class UNet3D(tf.keras.layers.Layer):
 
     Args:
       x: `[batch, in_grid_res, in_grid_res, in_grid_res, in_features]` tensor,
-        input voxel grid.
+        inputs voxel grid.
       training: bool, flag indicating whether model is in training mode.
 
     Returns:
@@ -172,7 +172,7 @@ class UNet3DOdd(tf.keras.layers.Layer):
     """Initialization.
 
     Args:
-      in_grid_res: int, input grid resolution, must be powers of 2.
+      in_grid_res: int, inputs grid resolution, must be powers of 2.
       out_grid_res: int, output grid resolution, must be powers of 2.
       num_filters: int, number of feature layers at smallest grid resolution.
       max_filters: int, max number of feature layers at any resolution.
@@ -196,7 +196,7 @@ class UNet3DOdd(tf.keras.layers.Layer):
           'in_grid_res must be 2**n, out_grid_res must be 2**n-1.')
     self.num_in_level = math.log(self.in_grid_res, 2)
     self.num_out_level = math.log(self.out_grid_res + 1, 2)
-    self.num_in_level = int(self.num_in_level)  # number of input levels
+    self.num_in_level = int(self.num_in_level)  # number of inputs levels
     self.num_out_level = int(self.num_out_level)  # number of output levels
 
     self._create_layers()
@@ -227,7 +227,7 @@ class UNet3DOdd(tf.keras.layers.Layer):
 
     Args:
       x: `[batch, in_grid_res, in_grid_res, in_grid_res, in_features]` tensor,
-        input voxel grid.
+        inputs voxel grid.
       training: bool, flag indicating whether model is in training mode.
 
     Returns:
@@ -265,7 +265,7 @@ class ModelG2G(tf.keras.Model):
     """Initialization.
 
     Args:
-      in_grid_res: int, input grid resolution, must be powers of 2.
+      in_grid_res: int, inputs grid resolution, must be powers of 2.
       out_grid_res: int, output grid resolution, must be powers of 2.
       num_filters: int, number of feature layers at smallest grid resolution.
       codelen: int, length of local latent codes.
@@ -306,8 +306,8 @@ class ModelG2G(tf.keras.Model):
     """Forward method.
 
     Args:
-      voxgrid: `[batch, inres, inres, inres, nc]` tensor, input voxel grid.
-      pts: `[batch, num_points, 3]` tensor, input query points.
+      voxgrid: `[batch, inres, inres, inres, nc]` tensor, inputs voxel grid.
+      pts: `[batch, num_points, 3]` tensor, inputs query points.
       training: bool, flag indicating whether model is in training mode.
     Returns:
       vals: `[batch, num_points, 3]` tensor, predicted values at query points.

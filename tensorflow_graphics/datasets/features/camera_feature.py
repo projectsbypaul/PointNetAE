@@ -27,7 +27,7 @@ from tensorflow_graphics.datasets.features import pose_feature
 class Camera(features.FeaturesDict):
   """`FeatureConnector` for camera calibration (extrinsic and intrinsic).
 
-  During `_generate_examples`, the feature connector accepts as input:
+  During `_generate_examples`, the feature connector accepts as inputs:
 
     * `parameter_dict:` A dictionary containing the extrinsic and instrinsic
     parameters of the camera as:

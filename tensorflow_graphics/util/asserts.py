@@ -43,10 +43,10 @@ def assert_no_infs_or_nans(
     name: A name for this op. Defaults to 'assert_no_infs_or_nans'.
 
   Raises:
-    tf.errors.InvalidArgumentError: If any entry of the input is NaN or Inf.
+    tf.errors.InvalidArgumentError: If any entry of the inputs is NaN or Inf.
 
   Returns:
-    The input vector, with dependence on the assertion operator in the graph.
+    The inputs vector, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return tensor
@@ -79,10 +79,10 @@ def assert_all_above(
     name: A name for this op. Defaults to 'assert_all_above'.
 
   Raises:
-    tf.errors.InvalidArgumentError: If any entry of the input is below `minval`.
+    tf.errors.InvalidArgumentError: If any entry of the inputs is below `minval`.
 
   Returns:
-    The input vector, with dependence on the assertion operator in the graph.
+    The inputs vector, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return vector
@@ -118,10 +118,10 @@ def assert_all_below(
     name: A name for this op. Defaults to 'assert_all_below'.
 
   Raises:
-    tf.errors.InvalidArgumentError: If any entry of the input exceeds `maxval`.
+    tf.errors.InvalidArgumentError: If any entry of the inputs exceeds `maxval`.
 
   Returns:
-    The input vector, with dependence on the assertion operator in the graph.
+    The inputs vector, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return vector
@@ -167,7 +167,7 @@ def assert_all_in_range(
     tf.errors.InvalidArgumentError: If `vector` is not in the expected range.
 
   Returns:
-    The input vector, with dependence on the assertion operator in the graph.
+    The inputs vector, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return vector
@@ -213,7 +213,7 @@ def assert_nonzero_norm(
     InvalidArgumentError: If `vector` has zero norm.
 
   Returns:
-    The input vector, with dependence on the assertion operator in the graph.
+    The inputs vector, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return vector
@@ -253,7 +253,7 @@ def assert_normalized(
     InvalidArgumentError: If the norm of `vector` is not `1.0`.
 
   Returns:
-    The input vector, with dependence on the assertion operator in the graph.
+    The inputs vector, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return vector
@@ -293,7 +293,7 @@ def assert_at_least_k_non_zero_entries(
       last axis.
 
   Returns:
-    The input tensor, with dependence on the assertion operator in the graph.
+    The inputs tensor, with dependence on the assertion operator in the graph.
   """
   if not FLAGS[tfg_flags.TFG_ADD_ASSERTS_TO_GRAPH].value:
     return tensor
@@ -320,7 +320,7 @@ def assert_binary(
     name: A name for this op. Defaults to 'assert_binary'.
 
   Returns:
-    The input tensor, with dependence on the assertion operator in the graph.
+    The inputs tensor, with dependence on the assertion operator in the graph.
 
   Raises:
     tf.errors.InvalidArgumentError: If any of the values in the tensor is not

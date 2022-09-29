@@ -77,7 +77,7 @@ class GridEncoder(layers.Layer):
     """Initialization.
 
     Args:
-      in_grid_res: int, input grid resolution, must be powers of 2.
+      in_grid_res: int, inputs grid resolution, must be powers of 2.
       num_filters: int, number of feature layers at smallest grid resolution.
       codelen: int, length of local latent codes.
       name: str, name of the layer.
@@ -87,7 +87,7 @@ class GridEncoder(layers.Layer):
     self.num_filters = num_filters
     self.codelen = codelen
 
-    # number of input levels.
+    # number of inputs levels.
     self.num_in_level = int(math.log(self.in_grid_res, 2))
 
     # create layers
@@ -104,7 +104,7 @@ class GridEncoder(layers.Layer):
 
     Args:
       x: `[batch, in_grid_res, in_grid_res, in_grid_res, in_features]` tensor,
-        input voxel grid.
+        inputs voxel grid.
       training: bool, flag indicating whether model is in training mode.
 
     Returns:
@@ -131,7 +131,7 @@ class GridEncoderVAE(layers.Layer):
     """Initialization.
 
     Args:
-      in_grid_res: int, input grid resolution, must be powers of 2.
+      in_grid_res: int, inputs grid resolution, must be powers of 2.
       num_filters: int, number of feature layers at smallest grid resolution.
       codelen: int, length of local latent codes.
       name: str, name of the layer.
@@ -141,7 +141,7 @@ class GridEncoderVAE(layers.Layer):
     self.num_filters = num_filters
     self.codelen = codelen
 
-    # number of input levels
+    # number of inputs levels
     self.num_in_level = int(math.log(self.in_grid_res, 2))
 
     # create layers
@@ -158,7 +158,7 @@ class GridEncoderVAE(layers.Layer):
 
     Args:
       x: `[batch, in_grid_res, in_grid_res, in_grid_res, in_features]` tensor,
-        input voxel grid.
+        inputs voxel grid.
       training: bool, flag indicating whether model is in training mode.
 
     Returns:

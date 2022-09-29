@@ -133,7 +133,7 @@ def right_handed(vertical_field_of_view: type_alias.TensorLike,
     name: A name for this op. Defaults to "perspective_right_handed".
 
   Raises:
-    InvalidArgumentError: if any input contains data not in the specified range
+    InvalidArgumentError: if any inputs contains data not in the specified range
       of valid values.
     ValueError: if the all the inputs are not of the same shape.
 

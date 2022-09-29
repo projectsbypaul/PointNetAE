@@ -136,7 +136,7 @@ class GraphConvolutionTestFeatureSteeredConvolutionTests(test_case.TestCase):
   )
   def test_feature_steered_convolution_exception_raised_types(
       self, err_msg, data_type, neighbors_type, sizes_type, var_type):
-    """Check the type errors for invalid input types."""
+    """Check the type errors for invalid inputs types."""
     data, neighbors, sizes = _random_data(1, 5, 3, True, False, data_type,
                                           neighbors_type, sizes_type)
     u, v, c, w, b = _random_variables(3, 3, 1, var_type)
@@ -159,7 +159,7 @@ class GraphConvolutionTestFeatureSteeredConvolutionTests(test_case.TestCase):
   )
   def test_feature_steered_convolution_exception_not_raised_types(
       self, data_type, neighbors_type, sizes_type, var_type):
-    """Check there are no exceptions for valid input types."""
+    """Check there are no exceptions for valid inputs types."""
     data, neighbors, sizes = _random_data(1, 5, 3, True, False, data_type,
                                           neighbors_type, sizes_type)
     u, v, c, w, b = _random_variables(3, 3, 1, var_type)
@@ -177,7 +177,7 @@ class GraphConvolutionTestFeatureSteeredConvolutionTests(test_case.TestCase):
       self.fail("Exception raised: %s" % str(e))
 
   def test_feature_steered_convolution_exception_raised_shapes(self):
-    """Check that invalid input shapes trigger the right exceptions."""
+    """Check that invalid inputs shapes trigger the right exceptions."""
     with self.assertRaisesRegexp(ValueError, "must have a rank of 2"):
       data, neighbors = _dummy_data(1, 5, 2)
       u, v, c, w, b = _dummy_variables(2, 2, 1)
@@ -432,7 +432,7 @@ class GraphConvolutionTestFeatureSteeredConvolutionTests(test_case.TestCase):
                                                        in_channels,
                                                        num_weight_matrices,
                                                        padding):
-    """Test the jacobian for random input data."""
+    """Test the jacobian for random inputs data."""
     random_data = _random_data(
         batch_size,
         num_vertices,
@@ -550,7 +550,7 @@ class EdgeConvolutionTemplateTests(test_case.TestCase):
   )
   def test_edge_convolution_template_exception_raised_types(
       self, err_msg, data_type, neighbors_type, sizes_type):
-    """Check the type errors for invalid input types."""
+    """Check the type errors for invalid inputs types."""
     data, neighbors, sizes = _random_data(1, 5, 3, True, False, data_type,
                                           neighbors_type, sizes_type)
     with self.assertRaisesRegexp(TypeError, err_msg):
@@ -574,7 +574,7 @@ class EdgeConvolutionTemplateTests(test_case.TestCase):
   )
   def test_edge_convolution_template_exception_not_raised_types(
       self, data_type, neighbors_type, sizes_type):
-    """Check there are no exceptions for valid input types."""
+    """Check there are no exceptions for valid inputs types."""
     data, neighbors, sizes = _random_data(1, 5, 3, True, False, data_type,
                                           neighbors_type, sizes_type)
     try:
@@ -589,7 +589,7 @@ class EdgeConvolutionTemplateTests(test_case.TestCase):
       self.fail("Exception raised: %s" % str(e))
 
   def test_edge_convolution_template_exception_raised_shapes(self):
-    """Check that invalid input shapes trigger the right exceptions."""
+    """Check that invalid inputs shapes trigger the right exceptions."""
     with self.assertRaisesRegexp(ValueError, "must have a rank of 2"):
       data, neighbors = _dummy_data(1, 5, 2)
       data = data[0, :]
@@ -704,7 +704,7 @@ class EdgeConvolutionTemplateTests(test_case.TestCase):
 
     self.assertEqual(data_curvature.shape, (2 * num_vertices + 1, 1))
 
-    # The rows corresponding to the original input data measure the curvature.
+    # The rows corresponding to the original inputs data measure the curvature.
     # The curvature at any point on a circle of radius 1 should be 1.
     # The interleaved rows of random data should map to zeros in the output.
     self.assertAllClose(data_curvature[1::2, :],
@@ -723,7 +723,7 @@ class EdgeConvolutionTemplateTests(test_case.TestCase):
   def test_edge_convolution_template_jacobian_random(self, batch_size,
                                                      num_vertices, in_channels,
                                                      padding, reduction):
-    """Test the jacobian for random input data."""
+    """Test the jacobian for random inputs data."""
     random_data = _random_data(
         batch_size,
         num_vertices,

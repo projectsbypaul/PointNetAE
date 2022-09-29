@@ -37,7 +37,7 @@ def splat_at_pixel_centers(
   The accumulated layers are then composited back-to-front.
 
   The specialized part is that the 3x3 kernel is always centered on the
-  pixel-coordinates of the sample in the input buffer, *not* the XY position
+  pixel-coordinates of the sample in the inputs buffer, *not* the XY position
   stored at that sample, but the weights are defined by using the XY position.
   Computing weights w.r.t. the XY positions, rather than the pixel-centers,
   allows gradients to flow from the output RGBA back to the XY positions. When
@@ -193,7 +193,7 @@ def rasterize_then_splat(
     name='rasterize_then_splat'):
   """Rasterization with differentiable occlusion using rasterize-then-splat.
 
-  Rasterizes the input triangles to produce surface point samples, applies
+  Rasterizes the inputs triangles to produce surface point samples, applies
   a user-specified shading function, then splats the shaded point
   samples onto the pixel grid.
 
@@ -201,7 +201,7 @@ def rasterize_then_splat(
   coordinates, etc.). The rasterization step interpolates these attributes
   across triangles to produce a dictionary of per-pixel interpolated attributes
   buffers with shapes `[H, W, K]` where `K` is the number of channels of the
-  input attribute. This dictionary is passed to the user-provided
+  inputs attribute. This dictionary is passed to the user-provided
   `shading_function`, which performs shading and outputs a `[H, W, 4]`
   buffer of RGBA colors. The result of the shader is replaced with (0,0,0,0) for
   background pixels.

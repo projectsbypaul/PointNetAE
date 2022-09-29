@@ -35,11 +35,11 @@ def pool(data: type_alias.TensorLike,
   """Implements graph pooling.
 
   The features at each output vertex are computed by pooling over a subset of
-  vertices in the input graph. This pooling window is specified by the input
+  vertices in the inputs graph. This pooling window is specified by the inputs
   `pool_map`.
 
   The shorthands used below are
-    `V1`: The number of vertices in the input data.
+    `V1`: The number of vertices in the inputs data.
     `V2`: The number of vertices in the pooled output data.
     `C`: The number of channels in the data.
 
@@ -50,18 +50,18 @@ def pool(data: type_alias.TensorLike,
     data: A `float` tensor with shape `[A1, ..., An, V1, C]`.
     pool_map: A `SparseTensor` with the same type as `data` and with shape
       `[A1, ..., An, V2, V1]`. The features for an output vertex `v2` will be
-      computed by pooling over the corresponding input vertices specified by
+      computed by pooling over the corresponding inputs vertices specified by
       the entries in `pool_map[A1, ..., An, v2, :]`.
     sizes: An `int` tensor of shape `[A1, ..., An, 2]` indicating the true
-      input sizes in case of padding (`sizes=None` indicates no padding).
+      inputs sizes in case of padding (`sizes=None` indicates no padding).
       `sizes[A1, ..., An, 0] <= V2` specifies the padding in the (pooled)
       output, and `sizes[A1, ..., An, 1] <= V1` specifies the padding in the
-      input.
+      inputs.
     algorithm: The pooling function, must be either 'max' or 'weighted'. Default
       is 'max'. For 'max' pooling, the output features are the maximum over the
-      input vertices (in this case only the indices of the `SparseTensor`
+      inputs vertices (in this case only the indices of the `SparseTensor`
       `pool_map` are used, the values are ignored). For 'weighted', the output
-      features are a weighted sum of the input vertices, the weights specified
+      features are a weighted sum of the inputs vertices, the weights specified
       by the values of `pool_map`.
     name: A name for this op. Defaults to 'graph_pooling_pool'.
 
@@ -69,8 +69,8 @@ def pool(data: type_alias.TensorLike,
     Tensor with shape `[A1, ..., An, V2, C]`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
     ValueError: if `algorithm` is invalid.
   """
   #  pyformat: enable
@@ -130,7 +130,7 @@ def unpool(data: type_alias.TensorLike,
   >>> upsampled = unpool(pooled, pool_map, sizes)
 
   The shorthands used below are
-    `V1`: The number of vertices in the input data.
+    `V1`: The number of vertices in the inputs data.
     `V2`: The number of vertices in the unpooled output data.
     `C`: The number of channels in the data.
 
@@ -149,7 +149,7 @@ def unpool(data: type_alias.TensorLike,
       pooling over the entries in `pool_map[A1, ..., A3, v1, :]`. This function
       applies this pooling map in reverse.
     sizes: An `int` tensor of shape `[A1, ..., A3, 2]` indicating the true
-      input sizes in case of padding (`sizes=None` indicates no padding):
+      inputs sizes in case of padding (`sizes=None` indicates no padding):
       `sizes[A1, ..., A3, 0] <= V1` and `sizes[A1, ..., A3, 1] <= V2`.
     name: A name for this op. Defaults to 'graph_pooling_unpool'.
 
@@ -157,8 +157,8 @@ def unpool(data: type_alias.TensorLike,
     Tensor with shape `[A1, ..., A3, V2, C]`.
 
   Raises:
-    TypeError: if the input types are invalid.
-    ValueError: if the input dimensions are invalid.
+    TypeError: if the inputs types are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   #  pyformat: enable
   with tf.name_scope(name):
@@ -196,7 +196,7 @@ def upsample_transposed_convolution(
   #  pyformat: disable
   r"""Graph upsampling by transposed convolution.
 
-  Upsamples a graph using a transposed convolution op. The map from input
+  Upsamples a graph using a transposed convolution op. The map from inputs
   vertices to the upsampled graph is specified by the reverse of pool_map. The
   inputs `pool_map` and `sizes` are the same as used for pooling:
 
@@ -230,7 +230,7 @@ def upsample_transposed_convolution(
       nondeterministic. Specifically, to avoid nondeterminism we must have
       `intersect([a1, ..., an, v_i, :],[a1, ..., a3, v_j, :]) = {}, i != j`.
     sizes: An `int` tensor of shape `[A1, ..., A3, 2]` indicating the true
-      input sizes in case of padding (`sizes=None` indicates no padding):
+      inputs sizes in case of padding (`sizes=None` indicates no padding):
       `sizes[A1, ..., A3, 0] <= V1` and `sizes[A1, ..., A3, 1] <= V2`.
     kernel_size: The kernel size for transposed convolution.
     transposed_convolution_op: A callable transposed convolution op with the
@@ -248,9 +248,9 @@ def upsample_transposed_convolution(
     Tensor with shape `[A1, ..., A3, V2, C]`.
 
   Raises:
-    TypeError: if the input types are invalid.
+    TypeError: if the inputs types are invalid.
     TypeError: if `transposed_convolution_op` is not a callable.
-    ValueError: if the input dimensions are invalid.
+    ValueError: if the inputs dimensions are invalid.
   """
   #  pyformat: enable
   with tf.name_scope(name):
@@ -284,7 +284,7 @@ def upsample_transposed_convolution(
     x_upsample = transposed_convolution_op(x_flat)
 
     # Map each upsampled vertex into its correct position based on pool_map.
-    # Select 'kernel_size' neighbors for each input vertex. Truncate or repeat
+    # Select 'kernel_size' neighbors for each inputs vertex. Truncate or repeat
     # as necessary.
     ragged = tf.RaggedTensor.from_value_rowids(
         pool_map_block_diagonal.indices[:, 1],

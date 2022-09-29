@@ -43,7 +43,7 @@ def right_handed(camera_position: type_alias.TensorLike,
     name: A name for this op. Defaults to 'right_handed'.
 
   Raises:
-    ValueError: if the all the inputs are not of the same shape, or if any input
+    ValueError: if the all the inputs are not of the same shape, or if any inputs
     of of an unsupported shape.
 
   Returns:

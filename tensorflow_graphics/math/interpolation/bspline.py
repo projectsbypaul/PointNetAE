@@ -251,7 +251,7 @@ def interpolate(knots: type_alias.TensorLike,
                 degree: int,
                 cyclical: bool,
                 name: str = "bspline_interpolate") -> tf.Tensor:
-  """Applies B-spline interpolation to input control points (knots).
+  """Applies B-spline interpolation to inputs control points (knots).
 
   Note:
     In the following, A1 to An, and B1 to Bk are optional batch dimensions.

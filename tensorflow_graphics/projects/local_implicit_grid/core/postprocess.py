@@ -63,7 +63,7 @@ def remove_backface(mesh, pc, k=3, lap_iter=50, lap_val=0.50,
 
   Args:
     mesh: trimesh instance. mesh recon. from lig that may contain backface.
-    pc: np.array of shape [n, 6], original input point cloud.
+    pc: np.array of shape [n, 6], original inputs point cloud.
     k: int, number of nearest neighbor for pooling sign.
     lap_iter: int, number of laplacian smoothing iterations.
     lap_val: float, lambda value for laplacian smoothing of cosine distance.
@@ -80,7 +80,7 @@ def remove_backface(mesh, pc, k=3, lap_iter=50, lap_val=0.50,
   if verbose: print("Building KDTree...")
   tree_pc = spatial.cKDTree(data=v)
 
-  # for each vertex, find nearest point in input point cloud
+  # for each vertex, find nearest point in inputs point cloud
   if verbose: print("{}-nearest neighbor search...".format(k))
   _, idx = tree_pc.query(mesh.vertices, k=k, n_jobs=-1)
 

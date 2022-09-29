@@ -150,7 +150,7 @@ class GraphConvolutionTestFeatureSteeredConvolutionLayerTests(
 
   def test_feature_steered_convolution_layer_training(self):
     """Test a simple training loop."""
-    # Generate a small valid input for a simple training task.
+    # Generate a small valid inputs for a simple training task.
     # Four corners of a square.
     data = np.array(((1.0, 1.0), (-1.0, 1.0), (-1.0, -1.0), (1.0, -1.0)))
     neighbors_indices = np.array(((0, 0), (0, 1), (0, 3),
@@ -270,7 +270,7 @@ class GraphConvolutionTestDynamicGraphConvolutionKerasLayerTests(
     """Test a simple training loop."""
     if not tf.executing_eagerly():
       return
-    # Generate a small valid input for a simple training task.
+    # Generate a small valid inputs for a simple training task.
     # Four corners of a square.
     data = np.array(((1.0, 1.0), (-1.0, 1.0), (-1.0, -1.0), (1.0, -1.0)))
     neighbors_indices = np.array(((0, 0), (0, 1), (0, 3),

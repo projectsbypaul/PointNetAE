@@ -140,7 +140,7 @@ class LossesTest(test_case.TestCase):
     discriminator = tf.keras.Sequential()
     discriminator.add(tf.keras.layers.Reshape((4,)))
     # Generates a dense layer that is initialized with all zeros.
-    # This leads to a network that has zero gradient for any input.
+    # This leads to a network that has zero gradient for any inputs.
     discriminator.add(
         tf.keras.layers.Dense(
             units=1, kernel_initializer='zeros', bias_initializer='zeros'))
@@ -163,7 +163,7 @@ class LossesTest(test_case.TestCase):
     discriminator.add(tf.keras.layers.Concatenate())
     discriminator.add(tf.keras.layers.Reshape((8,)))
     # Generates a dense layer that is initialized with all zeros.
-    # This leads to a network that has zero gradient for any input.
+    # This leads to a network that has zero gradient for any inputs.
     discriminator.add(
         tf.keras.layers.Dense(
             units=1, kernel_initializer='zeros', bias_initializer='zeros'))

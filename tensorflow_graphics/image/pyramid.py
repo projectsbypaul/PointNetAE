@@ -98,8 +98,8 @@ def _split(image: type_alias.TensorLike,
            kernel: type_alias.TensorLike) -> Tuple[tf.Tensor, tf.Tensor]:
   """Splits the image into high and low frequencies.
 
-  This is achieved by smoothing the input image and substracting the smoothed
-  version from the input.
+  This is achieved by smoothing the inputs image and substracting the smoothed
+  version from the inputs.
 
   Args:
     image: A tensor of shape `[B, H, W, C]`, where `B` is the batch size, `H`

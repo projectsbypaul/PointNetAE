@@ -875,11 +875,11 @@ def val(gpu_ids=None, record_losses=False, split='val', part_id=-2):
       if transforms is not None and input_image_size is None:
         if FLAGS.run_graph:
           FLAGS.run_graph = False
-          logging.info('Graph mode has been disable because the input does'
+          logging.info('Graph mode has been disable because the inputs does'
                        'not have constant size.')
         if FLAGS.batch_size > strategy.num_replicas_in_sync:
           raise ValueError('Batch size cannot be bigger than the number of GPUs'
-                           ' when the input does not have constant size')
+                           ' when the inputs does not have constant size')
 
     val_checkpoint_dir = os.path.join(FLAGS.logdir, f'{name}_ckpts')
     val_checkpoint = tf.train.Checkpoint(

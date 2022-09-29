@@ -73,7 +73,7 @@ def optimize_for_mask(geometry_network,
     verbose_steps: After how many steps to print the losses.
 
   Returns:
-    The optimized latent code for the input mask ().
+    The optimized latent code for the inputs mask ().
   """
   height, width = mask.shape[-3], mask.shape[-2]
   # Retrieve the latent code of the nearest shape if available.

@@ -454,7 +454,7 @@ class GraphPoolingUpsampleTransposeConvolutionTests(test_case.TestCase):
         use_bias=False,
         kernel_initializer=initializer)
 
-    # Convolving with an all-ones kernel is equal to summation of the input.
+    # Convolving with an all-ones kernel is equal to summation of the inputs.
     data_sum = np.tile(np.sum(data, axis=-1, keepdims=True), (1, 1, 2))
     true = np.zeros(shape=(2, 3, 2), dtype=np.float32)
     true[0, :, :] = data_sum[0, (0, 0, 1), :]

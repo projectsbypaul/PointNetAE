@@ -48,7 +48,7 @@ def model_to_eye(point_model_space: type_alias.TensorLike,
     name: A name for this op. Defaults to "model_to_eye".
 
   Raises:
-    ValueError: if the all the inputs are not of the same shape, or if any input
+    ValueError: if the all the inputs are not of the same shape, or if any inputs
     of of an unsupported shape.
 
   Returns:
@@ -113,7 +113,7 @@ def eye_to_clip(point_eye_space: type_alias.TensorLike,
     name: A name for this op. Defaults to "eye_to_clip".
 
   Raises:
-    ValueError: If any input is of an unsupported shape.
+    ValueError: If any inputs is of an unsupported shape.
 
   Returns:
     A tensor of shape `[A1, ..., An, 4]`, containing `point_eye_space` in
@@ -219,9 +219,9 @@ def ndc_to_screen(point_ndc_space: type_alias.TensorLike,
     name: A name for this op. Defaults to "ndc_to_screen".
 
   Raises:
-    InvalidArgumentError: if any input contains data not in the specified range
+    InvalidArgumentError: if any inputs contains data not in the specified range
       of valid values.
-    ValueError: If any input is of an unsupported shape.
+    ValueError: If any inputs is of an unsupported shape.
 
   Returns:
     A tensor of shape `[A1, ..., An, 3]`, containing `point_ndc_space` in
@@ -308,9 +308,9 @@ def model_to_screen(
     name: A name for this op. Defaults to "model_to_screen".
 
   Raises:
-    InvalidArgumentError: if any input contains data not in the specified range
+    InvalidArgumentError: if any inputs contains data not in the specified range
       of valid values.
-    ValueError: If any input is of an unsupported shape.
+    ValueError: If any inputs is of an unsupported shape.
 
   Returns:
     A tuple of two tensors, respectively of shape `[A1, ..., An, 3]` and
@@ -398,9 +398,9 @@ def perspective_correct_barycentrics(
     name: A name for this op. Defaults to "perspective_correct_barycentrics".
 
   Raises:
-    InvalidArgumentError: if any input contains data not in the specified range
+    InvalidArgumentError: if any inputs contains data not in the specified range
       of valid values.
-    ValueError: If any input is of an unsupported shape.
+    ValueError: If any inputs is of an unsupported shape.
 
   Returns:
     A tensor of shape `[A1, ..., An, 3]`, containing perspective correct
@@ -520,9 +520,9 @@ def perspective_correct_interpolation(
     name: A name for this op. Defaults to "perspective_correct_interpolation".
 
   Raises:
-    tf.errors.InvalidArgumentError: if any input contains data not in the
+    tf.errors.InvalidArgumentError: if any inputs contains data not in the
       specified range of valid values.
-    ValueError: If any input is of an unsupported shape.
+    ValueError: If any inputs is of an unsupported shape.
 
   Returns:
     A tensor of shape `[A1, ..., An, B]`, containing interpolated attributes.

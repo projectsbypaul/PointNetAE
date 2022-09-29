@@ -39,11 +39,11 @@ def transform_homogeneous(matrices: type_alias.TensorLike,
                           vertices: type_alias.TensorLike) -> tf.Tensor:
   """Applies 4x4 homogenous matrix transformations to xyz vertices.
 
-  The vertices are input and output as as row-major, but are interpreted as
+  The vertices are inputs and output as as row-major, but are interpreted as
   column vectors multiplied on the right-hand side of the matrices. More
   explicitly, this function computes (MV^T)^T where M represents transformation
   matrices and V stands for vertices.
-  Since input vertices are xyz they are extended to xyzw with w=1.
+  Since inputs vertices are xyz they are extended to xyzw with w=1.
 
   Args:
     matrices: A tensor of shape `[batch, 4, 4]` containing batches of view

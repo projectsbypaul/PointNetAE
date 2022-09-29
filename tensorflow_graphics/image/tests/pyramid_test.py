@@ -200,7 +200,7 @@ class PyramidTest(test_case.TestCase):
       (2,),
   )
   def test_split_merge_random(self, num_levels):
-    """Tests that splitting and merging back can reproduce the input."""
+    """Tests that splitting and merging back can reproduce the inputs."""
     tensor_shape = np.random.randint(1, 5, size=4).tolist()
     image_random = np.random.uniform(size=tensor_shape)
 

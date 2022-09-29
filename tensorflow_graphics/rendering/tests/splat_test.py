@@ -42,7 +42,7 @@ class SplatTest(test_case.TestCase):
 
   @parameterized.parameters(([1],), ([2],), ([1, 2, 3],))
   def test_batch_dimension_preserved(self, batch_shape):
-    """Tests that the input batch dimension preserved."""
+    """Tests that the inputs batch dimension preserved."""
     (vertices, triangles, attributes_dictionary, _, _, view_projection_matrix,
      image_height, image_width
     ) = rasterization_test_utils.create_rasterizer_inputs(batch_shape)

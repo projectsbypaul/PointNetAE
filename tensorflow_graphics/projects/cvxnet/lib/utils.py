@@ -61,7 +61,7 @@ def define_flags():
   flags.DEFINE_integer("n_half_planes", 25, "Number of half spaces used.")
   flags.DEFINE_integer("latent_size", 256, "The size of latent code.")
   flags.DEFINE_integer("dims", 3, "The dimension of query points.")
-  flags.DEFINE_bool("image_input", False, "Use color images as input if True.")
+  flags.DEFINE_bool("image_input", False, "Use color images as inputs if True.")
   flags.DEFINE_float("vis_scale", 1.3,
                      "Scale of bbox used when extracting meshes.")
   flags.DEFINE_float("level_set", 0.5,
@@ -124,10 +124,10 @@ def extract_mesh(input_val, params, indicators, input_holder, params_holder,
   """Extracting meshes from an indicator function.
 
   Args:
-    input_val: np.array, [1, height, width, channel], input image.
+    input_val: np.array, [1, height, width, channel], inputs image.
     params: tf.Operation, hyperplane parameter hook.
     indicators: tf.Operation, indicator hook.
-    input_holder: tf.Placeholder, input image placeholder.
+    input_holder: tf.Placeholder, inputs image placeholder.
     params_holder: tf.Placeholder, hyperplane parameter placeholder.
     points_holder: tf.Placeholder, query point placeholder.
     sess: tf.Session, running sess.

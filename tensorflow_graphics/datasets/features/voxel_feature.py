@@ -28,7 +28,7 @@ from tensorflow_datasets import features
 class VoxelGrid(features.Tensor):
   """`FeatureConnector` for voxel grids.
 
-  During `_generate_examples`, the feature connector accepts as input any of:
+  During `_generate_examples`, the feature connector accepts as inputs any of:
 
     * `dict`: dictionary containing the path to a {.mat} file and the key under
     which the voxel grid is accessible inside the file.
